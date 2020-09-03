@@ -7,6 +7,8 @@
         "@typescript-eslint/no-redeclare": "off",
         "@typescript-eslint/camelcase": "off",
         "@typescript-eslint/strict-boolean-expressions": "off",
-        "space-before-function-paren": "off"
+        "space-before-function-paren": "off",
+        "indent": "off",
+        "eol-last": "off"
     }
 }
