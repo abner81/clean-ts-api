@@ -8,8 +8,7 @@ import {
   MissingParamError,
   InvalidParamError
 } from '../../../presentation/errors'
-import { EmailValidator, HttpRequest } from '../signup/signup-protocols'
-import { Authentication } from '../../../domain/usecases/authentication'
+import { EmailValidator, HttpRequest, Authentication } from './login-protocols'
 
 interface SutTypes {
   sut: LoginController
