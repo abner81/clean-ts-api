@@ -6,7 +6,8 @@ import {
 } from '../signup/signup-protocols'
 import {
   badRequest,
-  serverError
+  serverError,
+  unauthorized
 } from '../../../presentation/helpers/http-helper'
 import {
   MissingParamError,
@@ -37,7 +38,10 @@ export class LoginController implements Controller {
       if (!isValid) {
         return badRequest(new InvalidParamError('email'))
       }
-      const auth = await this.authentication.auth(email, password)
+      const acessToken = await this.authentication.auth(email, password)
+      if (!acessToken) {
+        return unauthorized()
+      }
     } catch (error) {
       return serverError(error)
     }
