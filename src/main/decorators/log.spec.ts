@@ -65,7 +65,7 @@ describe('LogController Decorator', () => {
     expect(handleSpy).toHaveBeenCalledWith(httpRequest)
   })
 
-  test('should call controller handle', async () => {
+  test('should return correct value', async () => {
     const { sut } = makeSut()
     const httpRequest = {
       body: {
