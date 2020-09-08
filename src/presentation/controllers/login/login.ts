@@ -8,7 +8,8 @@ import {
 import {
   badRequest,
   serverError,
-  unauthorized
+  unauthorized,
+  ok
 } from '../../../presentation/helpers/http-helper'
 import {
   MissingParamError,
@@ -42,6 +43,7 @@ export class LoginController implements Controller {
       if (!acessToken) {
         return unauthorized()
       }
+      return ok({ acessToken })
     } catch (error) {
       return serverError(error)
     }
