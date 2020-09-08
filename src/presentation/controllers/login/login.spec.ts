@@ -2,7 +2,8 @@ import { LoginController } from './login'
 import {
   badRequest,
   serverError,
-  unauthorized
+  unauthorized,
+  ok
 } from '../../../presentation/helpers/http-helper'
 import {
   MissingParamError,
@@ -125,12 +126,9 @@ describe('Login Controller', () => {
     expect(httpResponse).toEqual(serverError(new Error()))
   })
 
-  test('should returns 200 ', async () => {
-    const { sut, authenticationStub } = makeSut()
-    jest
-      .spyOn(authenticationStub, 'auth')
-      .mockReturnValueOnce(new Promise((resolve) => resolve(null)))
+  test('should returns 200 if valid credintials are provided', async () => {
+    const { sut } = makeSut()
     const httpResponse = await sut.handle(makeFakeRequest())
-    expect(httpResponse).toEqual(unauthorized())
+    expect(httpResponse).toEqual(ok({ acessToken: 'any_token' }))
   })
 })
