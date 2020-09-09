@@ -6,7 +6,7 @@ import {
 } from '../../presentation/protocols'
 import { serverError, ok } from '../../presentation/helpers/http-helper'
 import { LogErrorRepository } from '../../data/protocols/log-error-repository'
-import { AccountModel } from '@/domain/models/account'
+import { AccountModel } from '../../domain/models/account'
 
 interface SutTypes {
   sut: LogControllerDecorator
