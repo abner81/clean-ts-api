@@ -15,6 +15,7 @@ interface SutTypes {
   sut: LoginController
   emailValidatorStub: EmailValidator
   authenticationStub: Authentication
+
 }
 
 const makeAuthentication = (): Authentication => {
@@ -38,7 +39,10 @@ const makeEmailValidator = (): EmailValidator => {
 const makeSut = (): SutTypes => {
   const emailValidatorStub = makeEmailValidator()
   const authenticationStub = makeAuthentication()
-  const sut = new LoginController(emailValidatorStub, authenticationStub)
+  const sut = new LoginController(
+    emailValidatorStub,
+    authenticationStub
+  )
   return {
     sut,
     emailValidatorStub,
