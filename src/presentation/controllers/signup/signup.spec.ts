@@ -1,6 +1,5 @@
 import { SignUpController } from './signup'
 import {
-  EmailValidator,
   AccountModel,
   AddAccount,
   AddAccountModel,
@@ -104,7 +103,7 @@ describe('SignUp Controller', () => {
     expect(authSpy).toHaveBeenCalledWith(httpResponse.body)
   })
 
-  test('should return 200 if Validation eturns', async () => {
+  test('should return 200 if Validation returns', async () => {
     const { sut, validationStub } = makeSut()
     jest
       .spyOn(validationStub, 'validate')
