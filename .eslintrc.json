@@ -12,6 +12,7 @@
         "eol-last": "off",
         "@typescript-eslint/no-unused-vars": "off",
         "@typescript-eslint/space-before-function-paren": "off",
-        "@typescript-eslint/return-await": "off"
+        "@typescript-eslint/return-await": "off",
+        "@typescript-eslint/indent": "off"
     }
 }
