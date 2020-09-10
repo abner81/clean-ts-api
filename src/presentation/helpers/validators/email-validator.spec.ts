@@ -1,7 +1,7 @@
-import { EmailValidator } from '../../controllers/signup/signup-protocols'
 import { InvalidParamError } from '../../errors'
 import { HttpRequest } from '../../protocols'
 import { EmailValidation } from './email-validation'
+import { EmailValidator } from '../../../presentation/protocols/emailValidator'
 
 interface SutTypes {
   sut: EmailValidation
