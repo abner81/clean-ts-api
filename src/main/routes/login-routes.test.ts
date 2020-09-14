@@ -58,7 +58,7 @@ describe('Login Routes', () => {
           email: 'abner81@live.com',
           password: '123'
         })
-        .expect(200)
+        .expect(401)
     })
   })
 })
