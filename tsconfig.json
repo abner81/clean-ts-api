@@ -3,16 +3,8 @@
     "outDir": "dist",
     "module": "commonjs",
     "target": "es2019",
-    "esModuleInterop": true,
-    "sourceMap": true,
-    "rootDir": "src",
-    "baseUrl": "src",
-    "paths": {
-      "@/*": ["*"]
-    }
+    "esModuleInterop": true
   },
-  "include": [
-    "src"
-  ],
-  "exclude": []
+  "include": ["src"],
+  "exclude": ["**/*.spec.ts", "**/*.test.ts"]
 }
