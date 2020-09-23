@@ -7,12 +7,11 @@ import {
 } from './signup-protocols-controller'
 import { MissingParamError, ServerError } from '../../errors'
 import { HttpRequest } from '../../protocols'
+import { ok, serverError, badRequest } from '../../helpers/http/http-helper'
 import {
-  ok,
-  serverError,
-  badRequest
-} from '../../helpers/http/http-helper'
-import { Authentication, AuthenticationModel } from '../login/login-protocols-controller'
+  Authentication,
+  AuthenticationModel
+} from '../login/login-protocols-controller'
 
 interface SutTypes {
   sut: SignUpController
@@ -106,7 +105,7 @@ describe('SignUp Controller', () => {
   test('should return 200 if valid data is provided', async () => {
     const { sut } = makeSut()
     const httpResponse = await sut.handle(makeFakeRequest())
-    expect(httpResponse).toEqual(ok(makeFakeAccount()))
+    expect(httpResponse).toEqual(ok('any_token'))
   })
 
   test('should call Validation with correct values', async () => {
