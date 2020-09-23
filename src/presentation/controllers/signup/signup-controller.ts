@@ -4,7 +4,12 @@ import {
   HttpResponse,
   AddAccount
 } from './signup-protocols-controller'
-import { badRequest, serverError, ok, forbidden } from '../../helpers/http/http-helper'
+import {
+  badRequest,
+  serverError,
+  ok,
+  forbidden
+} from '../../helpers/http/http-helper'
 import { Validation } from '../../protocols/validation'
 import { Authentication } from '../login/login-protocols-controller'
 import { EmailInUseError } from '../../errors'
@@ -35,7 +40,7 @@ export class SignUpController implements Controller {
         email,
         password
       })
-      return ok(auth)
+      return ok({ auth })
     } catch (error) {
       return serverError(error)
     }
