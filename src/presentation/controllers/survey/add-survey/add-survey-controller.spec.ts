@@ -1,6 +1,12 @@
-import { Controller, HttpRequest, HttpResponse } from './add-survey-protocols'
+import { HttpRequest, HttpResponse } from './add-survey-protocols'
 import { AddSurveyController } from './add-survey-controller'
 import { Validation } from '../../../protocols'
+
+interface SutTypes {
+  sut: AddSurveyController
+  validationStub: Validation
+}
+
 const makeFakeRequest = (): HttpRequest => ({
   body: {
     question: 'any_question',
@@ -13,16 +19,28 @@ const makeFakeRequest = (): HttpRequest => ({
   }
 })
 
+const makeValidation = (): Validation => {
+  class ValidationStub implements Validation {
+    validate(input: any): Error {
+      return null
+    }
+  }
+  return new ValidationStub()
+}
+
+const makeSut = (): SutTypes => {
+  const validationStub = makeValidation()
+  const sut = new AddSurveyController(validationStub)
+  return {
+    sut,
+    validationStub
+  }
+}
+
 describe('AddSurvey Controller', () => {
   test('should call validation with correct values', async () => {
-    class ValidationStub implements Validation {
-      validate(input: any): Error {
-        return null
-      }
-    }
-    const validationStub = new ValidationStub()
+    const { sut, validationStub } = makeSut()
     const validationSpy = jest.spyOn(validationStub, 'validate')
-    const sut = new AddSurveyController(validationStub)
     const httpRequest = makeFakeRequest()
     await sut.handle(httpRequest)
     expect(validationSpy).toHaveBeenCalledWith(httpRequest.body)
