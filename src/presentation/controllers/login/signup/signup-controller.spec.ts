@@ -5,9 +5,9 @@ import {
   AddAccountModel,
   Validation
 } from './signup-protocols-controller'
-import { EmailInUseError, MissingParamError, ServerError } from '../../errors'
-import { HttpRequest } from '../../protocols'
-import { ok, serverError, badRequest, forbidden } from '../../helpers/http/http-helper'
+import { EmailInUseError, MissingParamError, ServerError } from '../../../errors'
+import { HttpRequest } from '../../../protocols'
+import { ok, serverError, badRequest, forbidden } from '../../../helpers/http/http-helper'
 import {
   Authentication,
   AuthenticationModel

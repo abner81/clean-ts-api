@@ -9,10 +9,10 @@ import {
   serverError,
   ok,
   forbidden
-} from '../../helpers/http/http-helper'
-import { Validation } from '../../protocols/validation'
+} from '../../../helpers/http/http-helper'
+import { Validation } from '../../../protocols/validation'
 import { Authentication } from '../login/login-protocols-controller'
-import { EmailInUseError } from '../../errors'
+import { EmailInUseError } from '../../../errors'
 
 export class SignUpController implements Controller {
   constructor(
