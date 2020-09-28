@@ -4,7 +4,7 @@
     "description": "",
     "main": "./dist/main/server.js",
     "scripts": {
-        "start": "node dist/main/server.js",
+        "start": "sucrase-node src/main/server.ts",
         "start:debug": "nodemon --watch ./dist --inspect --nolazy dist/main/server.js",
         "build": "rimraf dist && tsc",
         "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
@@ -45,6 +45,7 @@
         "lint-staged": "^10.4.0",
         "mockdate": "^3.0.2",
         "rimraf": "^3.0.2",
+        "sucrase": "^3.15.0",
         "supertest": "^4.0.2",
         "ts-jest": "^26.4.0",
         "typescript": "^3.9.3"
