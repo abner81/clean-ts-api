@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/abner81/clean-ts-api.svg?branch=master)](https://travis-ci.org/abner81/clean-ts-api)
+[![Coverage Status](https://coveralls.io/repos/github/abner81/clean-ts-api/badge.svg)](https://coveralls.io/github/abner81/clean-ts-api)
+
 # Criar enquete
 
 > ## Caso de sucesso:
