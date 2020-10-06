@@ -44,19 +44,22 @@ describe('Login Routes', () => {
     })
 
     test('should return 204 on add survey with valid accessToken', async () => {
-       const res = await accountCollection.insertOne({
-         name: 'Abner Machado',
-         email: 'abner81@live.com',
-         password: '123',
-         role: 'admin'
-       })
-       const id = res.ops[0]._id
-       const accessToken = sign({ id }, env.jwtSecret)
-       await accountCollection.updateOne({ _id: id }, {
-         $set: {
-           accessToken
-         }
-       })
+      const res = await accountCollection.insertOne({
+        name: 'Abner Machado',
+        email: 'abner81@live.com',
+        password: '123',
+        role: 'admin'
+      })
+      const id = res.ops[0]._id
+      const accessToken = sign({ id }, env.jwtSecret)
+      await accountCollection.updateOne(
+        { _id: id },
+        {
+          $set: {
+            accessToken
+          }
+        }
+      )
       await request(app)
         .post('/api/surveys')
         .set('x-access-token', accessToken)
@@ -73,6 +76,13 @@ describe('Login Routes', () => {
           ]
         })
         .expect(204)
+    })
+  })
+  describe('GET /surveys', () => {
+    test('should return 403 on load without accessToken', async () => {
+      await request(app)
+        .get('/api/surveys')
+        .expect(403)
     })
   })
 })
