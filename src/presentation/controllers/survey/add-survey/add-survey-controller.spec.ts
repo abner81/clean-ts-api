@@ -10,6 +10,7 @@ import {
   serverError,
   noContent
 } from '../../../helpers/http/http-helper'
+import MockDate from 'mockdate'
 
 interface SutTypes {
   sut: AddSurveyController
@@ -20,12 +21,11 @@ interface SutTypes {
 const makeFakeRequest = (): HttpRequest => ({
   body: {
     question: 'any_question',
-    answers: [
-      {
+    answers: [{
         image: 'any_image',
         answer: 'any_answer'
-      }
-    ]
+      }],
+    date: new Date()
   }
 })
 
@@ -59,6 +59,14 @@ const makeSut = (): SutTypes => {
 }
 
 describe('AddSurvey Controller', () => {
+  beforeAll(() => {
+    MockDate.set(new Date())
+  })
+
+  afterAll(() => {
+    MockDate.reset()
+  })
+
   test('should call validation with correct values', async () => {
     const { sut, validationStub } = makeSut()
     const validationSpy = jest.spyOn(validationStub, 'validate')
