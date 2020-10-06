@@ -5,6 +5,11 @@ export interface SurveyModel {
   date: Date
 }
 
+export interface SurveyMockModel{
+  question: string
+  answers: SurveyAnswerModel[]
+}
+
 export interface SurveyAnswerModel {
   image?: string
   answer: string
