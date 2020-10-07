@@ -12,7 +12,7 @@ import {
 } from '@/presentation/helpers/http/http-helper'
 import MockDate from 'mockdate'
 
-interface SutTypes {
+type SutTypes = {
   sut: AddSurveyController
   validationStub: Validation
   addSurveyStub: AddSurvey
