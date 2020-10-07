@@ -1,5 +1,5 @@
-import { InvalidParamError } from '../../presentation/errors'
-import { HttpRequest } from '../../presentation/protocols'
+import { InvalidParamError } from '@/presentation/errors'
+import { HttpRequest } from '@/presentation/protocols'
 import { EmailValidation } from './email-validation'
 import { EmailValidator } from '../protocols/emailValidator'
 

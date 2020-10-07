@@ -3,10 +3,10 @@ import {
   HttpResponse,
   HttpRequest,
   Controller
-} from '../../presentation/protocols'
-import { serverError, ok } from '../../presentation/helpers/http/http-helper'
-import { LogErrorRepository } from '../../data/protocols/db/log/log-error-repository'
-import { AccountModel } from '../../domain/models/account'
+} from '@/presentation/protocols'
+import { serverError, ok } from '@/presentation/helpers/http/http-helper'
+import { LogErrorRepository } from '@/data/protocols/db/log/log-error-repository'
+import { AccountModel } from '@/domain/models/account'
 
 interface SutTypes {
   sut: LogControllerDecorator

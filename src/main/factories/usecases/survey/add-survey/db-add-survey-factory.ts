@@ -1,10 +1,8 @@
-import { DbAddAccount } from '../../../../../data/usecases/add-account/db-add-account'
-import { DbAddSurvey } from '../../../../../data/usecases/add-survey/db-add-survey'
-import { AddAccount } from '../../../../../domain/usecases/add-account'
-import { AddSurvey } from '../../../../../domain/usecases/add-survey'
-import { SurveyMongoRepository } from '../../../../../infra/db/mongodb/survey/survey-repository'
+import { DbAddSurvey } from '@/data/usecases/add-survey/db-add-survey'
+import { AddSurvey } from '@/domain/usecases/add-survey'
+import { SurveyMongoRepository } from '@/infra/db/mongodb/survey/survey-repository'
 
 export const makeDbAddSurvey = (): AddSurvey => {
   const surveyMongoRepository = new SurveyMongoRepository()
- return new DbAddSurvey(surveyMongoRepository)
+  return new DbAddSurvey(surveyMongoRepository)
 }

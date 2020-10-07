@@ -9,7 +9,7 @@ import {
   badRequest,
   serverError,
   noContent
-} from '../../../helpers/http/http-helper'
+} from '@/presentation/helpers/http/http-helper'
 import MockDate from 'mockdate'
 
 interface SutTypes {
